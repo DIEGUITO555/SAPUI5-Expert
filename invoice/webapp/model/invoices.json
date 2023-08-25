@@ -1,0 +1,29 @@
+{   
+    "Invoices" : [ 
+        {
+            "ProductName" : "HDD-Samsung 250GB",
+            "Quantity" : 21,
+            "ExtendedPrice" : 87.2000,
+            "Shippername": "Fun Inc.",
+            "ShippedDate" : "2015-04-01T00:00:00",
+            "Status" : "A"
+        },
+        {
+            "ProductName" : "Display Dell UH850 4k 27",
+            "Quantity" : 4,
+            "ExtendedPrice" : 9.99999,
+            "Shippername": "ACME.",
+            "ShippedDate" : "2015-02-01T00:00:00",
+            "Status" : "B"
+        },
+        {
+            "ProductName" : "RAM PX DDR4 PC4-24000 16GB",
+            "Quantity" : 3,
+            "ExtendedPrice" : 6.85000,
+            "Shippername": "ACME.",
+            "ShippedDate" : "2015-03-01T00:00:00",
+            "Status" : "C"
+        }
+    ]
+
+}
