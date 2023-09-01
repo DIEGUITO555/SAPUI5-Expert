@@ -9,7 +9,7 @@
                         id="helloDialogButton"
                         icon="sap-icon://add-contact"
                         text="{i18n>helloDialoBut}"
-                        press="onOpenDialog"/>
+                        press="onOpenDialog()"/>
                 <Button id="_IDGenButton1" class="sapUiSmallMarginEnd"
                         type="Emphasized" 
                         text="{i18n>sayHello}"

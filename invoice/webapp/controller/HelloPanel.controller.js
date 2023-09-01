@@ -22,14 +22,14 @@ function(Controller,MessageToast,models) {
 
     },
     onShowHello: function () {
-        MessageToast.show("Say hello");
+        MessageToast.show(`hola`);
     },
 
 
 
     onOpenDialog: function(){
 
-        this.getOwnerComponent().openHelloDialog();
+        this.getOwnerComponent().openHelloDialog(); // se usa desde cualquier controlador para llamar el Fragment manejado
 
       /*  let oView = this.oView;
 

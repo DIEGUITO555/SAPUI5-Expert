@@ -32,11 +32,11 @@ sap.ui.define([
                 this.setModel(models.createDeviceModel(), "device");
                 this.setModel(models.createRecipient(), "model");
 
-                this._helloDialog = new HelloDialog(this.getRootControl());
+                this._helloDialog = new HelloDialog(this.getRootControl()); //Esta funcion "getRootControl" regresa la instancia donde se llama
             },
 
-            exit : function (){
-                this._helloDialog.destroy();
+            exit : function (){                    //Esta funcion destuye las instancias que son Manejadas
+                this._helloDialog.destroy(); 
                 delete this._helloDialog;
             },
 

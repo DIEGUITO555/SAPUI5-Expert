@@ -9,6 +9,11 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("logaligroup.invoice.controller.App", {
+            onChangeLanguage:function(oEvent){
+
+                var selectedItemKey = oEvent.getParameter("selectedItem").getKey();
+                sap.ui.getCore().getConfiguration().setLanguage(selectedItemKey);
+            }
       
         });
     });
