@@ -1,12 +1,10 @@
-<mvc:View   controllerName="employees.controller.App"
+<mvc:View   controllerName="employees.controller.MasterEmployee"
             xmlns="sap.m"
             xmlns:mvc="sap.ui.core.mvc" 
             xmlns:core="sap.ui.core" 
             displayBlock="true">
 
-    <Shell>
-        <App>
-            <pages>
+
                 <Page id="page" title="{i18n>title}">
                     <content>
 
@@ -57,8 +55,6 @@
                         
                     </content>
                 </Page>
-            </pages>
-        </App>
-    </Shell>
+   
     
 </mvc:View>

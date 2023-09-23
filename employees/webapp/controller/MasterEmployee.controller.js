@@ -14,71 +14,15 @@ sap.ui.define([
     function (Controller,JSONModel,Filter,FilterOperator) {
         "use strict";
 
-        return Controller.extend("employees.controller.App", {
+        return Controller.extend("employees.controller.MasterEmployee", {
             
             onInit: function () {
+                this.oEventBus = sap.ui.getCore().getEventBus();
 
-                this._loadCountries();
-                this._loadEmployees();
-                this._loadConfig();
 
             },
 
-            _loadCountries : function(){
-                let oModel = new JSONModel(),
-                    oView = this.getView(),
-                    oResourceBundle = oView.getModel("i18n").getResourceBundle();
-                   
-                    
-
-       /*          let oData = {
-                    employeeId : "123456",
-                    countryKey : "UK",
-                    listCountry :[
-                        {
-                            "Key":"US",
-                            "text": oResourceBundle.getText("countryUS")
-                        },
-                        {
-                            "Key":"UK",
-                            "text": oResourceBundle.getText("countryUK")
-                        },
-                        {
-                            "Key":"ES",
-                            "text": oResourceBundle.getText("countryES")
-                        },
-                    ]
-                } 
-                 
-                let oModel2 = new JSONModel(oData);
-               
-                oModel.setData(oData);*/
-                oModel.loadData("../model/Countries.json");
-                oView.setModel(oModel,"jsonCountries");
-                
-              
-
-            },
-
-            _loadEmployees : function(){
-
-                let oModel = new JSONModel(),
-                    oView = this.getView();
-                   
-                oModel.loadData("../model/Employees.json");
-                oView.setModel(oModel,"jsonEmployees");
-
-            },
-
-            _loadConfig : function(){
-
-                let oModel = new JSONModel(),
-                    oView = this.getView();
-                   
-                oModel.loadData("../model/config.json");
-                oView.setModel(oModel,"jsonConfig");
-
-            },
+            
 
             onValidate: function (){
                 let oInput = this.getView().byId("inputEmployee"),
@@ -230,11 +174,19 @@ sap.ui.define([
                         this.oDialogOrders.bindElement("jsonEmployees>"+oContext);
                         this.oDialogOrders.open();
             
-
+  
             },
 
             onCloseOrders: function (){
                 this.oDialogOrders.close();
+            },
+
+            ShowEmployee: function (oEvent){
+                let oItem = oEvent.getSource(),
+                    oBindingContext = oItem.getBindingContext("jsonEmployees"),
+                    sPath = oBindingContext.getPath();
+
+                this.oEventBus.publish("flexible","ShowEmployee",sPath);
             }
         });
     });

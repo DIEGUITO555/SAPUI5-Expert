@@ -1,0 +1,84 @@
+<mvc:View   controllerName="employees.controller.DetailsEmployee"
+            xmlns="sap.m"
+            xmlns:mvc="sap.ui.core.mvc" 
+            xmlns:core="sap.ui.core" 
+            displayBlock="true">
+
+            <Page title="{i18n>employeeDetails}" >
+                <content>
+                    <Panel >
+                        <FlexBox height="4.063rem"
+                                 alignItems="Center"
+                                 justifyContent="Center"   >
+                            <items>
+                                <Text text="{jsonEmployees>LastName}, {jsonEmployees>FirstName}" class="boldText"/>
+                            </items>
+                        </FlexBox>
+
+                        <FlexBox height="4.063rem"
+                                 alignItems="Start"
+                                 justifyContent="SpaceBetween">
+
+                                <items>
+                                    <VBox >
+
+                                        <Text text="{i18n>employeeID}"
+                                                class="sapUiTinyMarginEnd boldText" />
+                                        <Text text="{jsonEmployees>EmployeeID}"/>
+
+                                    </VBox>
+                                    <VBox >
+
+                                        <Text text="{i18n>titleEmployee}"
+                                                class="boldText" />
+                                        <Text text="{jsonEmployees>Title}"/>
+
+                                    </VBox>
+                                </items>
+                        
+                        </FlexBox>
+
+                        <FlexBox alignItems="Start"
+                                  justifyContent="SpaceBetween" >
+                            <items>
+                                <HBox >
+                                    <Text text="{i18n>CountryCode}: "
+                                           class="sapUiTinyMarginEnd boldText"/>
+                                    <Text text="{jsonEmployees>Country}"/>       
+                                </HBox>
+                                <HBox >
+                                    <Text text="{i18n>city}: "
+                                           class="sapUiTinyMarginEnd boldText"/>
+                                    <Text text="{jsonEmployees>City}"/>       
+                                </HBox>
+                                <HBox >
+                                    <Text text="{i18n>postalCode2}: "
+                                           class="sapUiTinyMarginEnd boldText"/>
+                                    <Text text="{jsonEmployees>PostalCode}"/>       
+                                </HBox>
+                            </items>
+                        </FlexBox>
+                    </Panel>
+
+                    <Panel class="sapUiSizeCompat"
+                            backgroundDesign="Transparent">
+                        <headerToolbar>
+                            <Toolbar >
+                                <Title text="{i18n>incident} {= ${jsonEmployees>Country} !== 'US'? ${i18n>europa} : ${i18n>us}}" />
+                                <ToolbarSpacer ></ToolbarSpacer>
+                                <Button text="{i18n>createIncidence}"
+                                        press="onCreateIncidence"/>
+                            </Toolbar>
+                        </headerToolbar>
+
+                        <content>
+                            <Panel id="tableIncidence"
+                                    class="sapUiNoContentPadding"
+                                    backgroundDesign="Transparent"/>
+                        </content>
+                    </Panel>
+                </content>          
+            </Page>
+
+
+</mvc:View>

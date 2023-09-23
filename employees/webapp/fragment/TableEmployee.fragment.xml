@@ -13,7 +13,9 @@
                 <Table id="tableEmployee"
                         items="{jsonEmployees>/Employees}">
                     <columns>
-                        <Column visible="{jsonConfig>/visibleID}" >
+                        <Column minScreenWidth="Small"
+                                demandPopin="true"
+                                visible="{jsonConfig>/visibleID}" >
                             <header>
                                 <Label text="{i18n>tableID}"/>
                             </header>
@@ -41,8 +43,8 @@
                     </columns>
 
                     <items>
-                        <ColumnListItem type="Active"
-                                        press="onShowOrders">
+                        <ColumnListItem type="Navigation"
+                                        press="ShowEmployee">
                             <cells>
                                 <Text text="{jsonEmployees>EmployeeID}"/>
                                 <Text text="{jsonEmployees>FirstName} {jsonEmployees>LastName}"/>

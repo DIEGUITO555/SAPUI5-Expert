@@ -1,0 +1,63 @@
+<mvc:View   controllerName="employees.controller.Container"
+            xmlns="sap.m"
+            xmlns:f="sap.f"
+            xmlns:mvc="sap.ui.core.mvc" 
+            xmlns:core="sap.ui.core" 
+            displayBlock="true">
+
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+
+                <Page id="aux">
+                    <content>
+                        <f:FlexibleColumnLayout id="contanier"
+                                            backgroundDesign="Solid"
+                                            layout="{layouts>/ActiveKey}">
+
+                            <!--Vista Maestro-->
+                            <f:beginColumnPages>
+                                <mvc:XMLView id="master"
+                                            viewName="employees.view.MasterEmployee"
+                                            type="XML" />
+                            
+                            </f:beginColumnPages>
+                        
+                            <!--Vista Detalle-->
+                            <f:midColumnPages>
+                                <mvc:XMLView id="details"
+                                            viewName="employees.view.DetailsEmployee"
+                                            type="XML" />
+                            
+                            </f:midColumnPages>
+                        
+                            <!--Vista Adicional-->
+                            <f:endColumnPages>
+                                <Page >
+                                
+                                </Page>
+                            
+                            </f:endColumnPages>
+                
+                        </f:FlexibleColumnLayout>
+                    </content>
+
+                    <footer>
+                        <Toolbar >
+                            <Label text="{i18n>layout}:"
+                                    class="sapUiSmallMargin"/>
+                            <Select items="{layouts>/Layout}"
+                                    selectedKey="{layouts>/ActiveKey}">
+
+                                    <core:Item key="{layouts>Key}" text="{layouts>Text}"/>
+                            
+                            </Select>
+                        </Toolbar>
+                    </footer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>           
+
+
+</mvc:View>

@@ -77,6 +77,11 @@
       "global":{
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/Employees.json"
+      },
+      "layouts":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/Layouts.json"
+
       }
     },
     "resources": {
@@ -98,28 +103,32 @@
       },
       "routes": [
         {
-          "name": "RouteApp",
-          "pattern": ":?query:",
+          "name": "RouteContainer",
+          "pattern": "container",
           "target": [
-            "TargetApp"
+            "TargetContainer"
           ]
         }
       ],
       "targets": {
-        "TargetApp": {
+        "TargetContainer": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "App",
-          "viewName": "App"
+          "viewId": "Container",
+          "viewName": "Container"
+        },
+        "TargetMasterEmployee":{
+          "viewId": "MasterEmployee",
+          "viewName": "MasterEmployee"
         }
       }
     },
     "rootView": {
-      "viewName": "employees.view.App",
+      "viewName": "employees.view.Container",
       "type": "XML",
       "async": true,
-      "id": "App"
+      "id": "Container"
     }
   }
 }
