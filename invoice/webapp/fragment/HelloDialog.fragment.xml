@@ -1,21 +1,129 @@
 <core:FragmentDefinition
                 xmlns="sap.m"
-                xmlns:core="sap.ui.core">
+                xmlns:core="sap.ui.core"
+                xmlns:mvc="sap.ui.core.mvc"
+                xmlns:f="sap.ui.layout.form">
               
       
-                <Dialog id="helloDialog"  title="Formulario {model>/recipient/name}" >
+                <Dialog id="helloDialog"  title="Datos Personales {model>/recipient/name}" >
                         <content>
-                        <core:Icon id="Iconfrg1" src="sap-icon://world"
-                                size="1rem" />
+                        
+                                
+                        <VBox id="formContainerPersonal" class="sapUiSmallMargin"> 
+                                <f:SimpleForm   id="simpleFormPersonal" 
+                                                editable="true"
+                                                layout="ColumnLayout"
+                                                columnsM="2"
+                                                columnsL="2"
+                                                columnsXL="2">
+                                  <f:content>
+                                        <core:Title text="Datos Personales" icon="sap-icon://account"/>
+                                        <Label text="Nombre"/>
+                                        <Input  required="true"  
+                                                placeholder="Ingrese su Nombre"/>
+                                        <Label text="Apellido"/>
+                                        <Input required="true" 
+                                                placeholder="Ingrese su Apellido"/> 
+                                        <Label text="Fecha de Nacimiento"/>
+                                        <DatePicker
+                                                id="DP1"
+                                                placeholder="Fecha de Nacimiento"
+                                                required="true"
+                                                change="handleChange"
+                                                class="sapUiSmallMarginBottom"/>
+                                       
+                                        <Label text="Nacionalizado"/>
+                                        <Switch state="true" customTextOn="Yes" customTextOff="No" >
+                                                <layoutData>
+                                                <FlexItemData growFactor="1" />
+                                                </layoutData>
+			                </Switch>
+                                        
+                                        <Label text="Notas"/>
+                                        <TextArea rows="3"
+                                                  placeholder="Alguna Observación"/>
+                                                                                       
+
+                                        <core:Title text="Direccion de Domicilio" icon="sap-icon://create-form"/>     
+                                        <Label text="Pais"/>
+                                                <Select id="country" selectedKey="{Country}" required="true">
+					        <items>
+                                                        <core:Item text="England" key="England"/>
+                                                        <core:Item text="Germany" key="Germany"/>
+                                                        <core:Item text="USA" key="USA"/>
+					        </items>
+				                </Select>
+                                                
+                                        <Label text="Departamento"/>
+                                        <Select
+                                                        forceSelection="false"
+                                                        selectedKey="{/SelectedProduct}"
+                                                        required="true"
+                                                        items="{
+                                                                path: '/ProductCollection',
+                                                                sorter: { path: 'Name' }
+                                                        }">
+                                                        <core:Item key="{ProductId}" text="{Name}" />
+                                        </Select>
+                                        <Label text="Capital"/>
+                                        <Input required="true"  />
+                                        <Label text="Direccion"/>
+                                        <TextArea rows="3"
+                                                  placeholder="Ingrese su dirección"/> 
+                                  </f:content>  
+                                </f:SimpleForm>
+                        
+                        </VBox>  
+                        <VBox id="formContainerEmployment" class="sapUiSmallMargin"> 
+                                <f:SimpleForm   id="simpleFormEmployment" 
+                                                editable="true"
+                                                layout="ColumnLayout"
+                                                columnsM="2"
+                                                columnsL="2"
+                                                columnsXL="2">
+                                  <f:content>
+                                        <core:Title text="Datos Personales" icon="sap-icon://account"/>
+                                        <Label text="Correo Electronico"/>
+                                        <Input required="true" value="{ path: 'email',
+                                                                        type: 'sap.ui.model.type.String',
+                                                                        constraints: {
+								                search: '^\\w+[\\w-+\\.]*\\@[a-zA-Z]+.[a-zA-Z]+'
+								                        }
+							                }"  />
+                                        <Label text="Telefono Personal"/>
+                                        <Input required="true"  />
+
+                                                
+
+                                  </f:content>  
+
+                                
+                                </f:SimpleForm>
+                        
+                        </VBox>             
                         </content>
                   
 
-                        <beginButton>
-                        <Button id="Butfrg1" type="Reject"
-                                text="{i18n>dialogCloseBut}"
-                                press="onCloseDialog" />
-                        </beginButton>
+                        
+                     
+                    <footer>
+			<Toolbar>
+				<content>
+					
+					<ToolbarSpacer />
+					<Button type="Accept"
+							text="{i18n>dialogSaveBut}"
+							press="._generateInvalidUserInput" />
+					<Button id="Butfrg1"
+						text="{i18n>dialogCloseBut}"
+						type="Reject"
+						press="onCloseDialog"
+						ariaHasPopup="Dialog" />
+				</content>
+			</Toolbar>
+		</footer>
 
+                       
         
                  </Dialog>
 

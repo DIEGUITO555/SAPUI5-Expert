@@ -87,7 +87,7 @@
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/invoices.json"
       },
-      "": {
+      "northwind": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {
@@ -113,20 +113,34 @@
       },
       "routes": [
         {
-          "name": "RouteAPP",
-          "pattern": ":?query:",
+          "name": "RouteApp",
+          "pattern": "",
           "target": [
-            "TargetAPP"
+            "TargetOverview"
+          ]
+        },
+        {
+          "name": "Details",
+          "pattern": "details/{invoicePath}",
+          "target": [
+            "TargetDetails"
           ]
         }
       ],
       "targets": {
-        "TargetAPP": {
+        "TargetOverview": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "APP",
-          "viewName": "APP"
+          "viewId": "Overview",
+          "viewName": "Overview"
+        },
+        "TargetDetails":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Details",
+          "viewName": "Details"
         }
       }
     },

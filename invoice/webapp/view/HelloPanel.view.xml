@@ -3,7 +3,7 @@
          xmlns:core="sap.ui.core"
          xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
    
-    <Panel id="_IDGenPanel1" headerText="{i18n>helloPanel}">
+    <Panel id="_IDGenPanel1" headerText="{i18n>helloPanel}" width="auto" expandable="{device>/system/phone}" expanded="{= ${device>/system/phone}}">
             <content>
                 <Button class="sapUiSmallMarginBeginEnd"
                         id="helloDialogButton"

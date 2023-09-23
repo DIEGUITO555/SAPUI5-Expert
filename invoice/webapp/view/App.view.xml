@@ -3,31 +3,6 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Shell id="shell">
-        <App id="app">
-            <Page id="page" 
-                  title="{i18n>title}">
-                <headerContent>
-                    <Select forceSelection="true" change="onChangeLanguage" >
-                                <core:ListItem  key="en"  text="English" icon="sap-icon://world" />    
-                                <core:ListItem  key="es"  text="Spanish" icon="sap-icon://world" />            
-                    </Select>
-                </headerContent>  
-                <content>
-                
-                        <mvc:XMLView id="helloPanel"
-                                     viewName="logaligroup.invoice.view.HelloPanel"
-                                     type="XML"/>
-                        <mvc:XMLView id="invoices"
-                                     viewName="logaligroup.invoice.view.InvoicesList"
-                                     type="XML"/> 
-
-                        <mvc:XMLView id="invoices2"
-                                     viewName="logaligroup.invoice.view.InvoicesList2"
-                                     type="XML"/>                 
-                          
-
-                </content>
-             </Page>
-        </App>
+        <App id="app" />
      </Shell>
 </mvc:View>

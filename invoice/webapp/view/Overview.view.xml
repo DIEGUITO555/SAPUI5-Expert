@@ -1,0 +1,40 @@
+<mvc:View controllerName="logaligroup.invoice.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" 
+            title="{i18n>title}">
+            <landmarkInfo>
+                <PageAccessibleLandmarkInfo rootLabel="{i18n>overViewrooLabel}"
+                                            rootRole="Region"
+                                            contentRole="Main"
+                                            contentLabel="{i18n>overViewContentlabel}"
+                                            headerRole="Banner"
+                                            headerLabel="{i18n>overViewheaderLabel}"/>
+            </landmarkInfo>
+        <headerContent>
+            <Select forceSelection="true" change="onChangeLanguage" >
+                        <core:ListItem  key="en"  text="English" icon="sap-icon://world" />    
+                        <core:ListItem  key="es"  text="Spanish" icon="sap-icon://world" />            
+            </Select>
+        </headerContent>  
+        <content>
+        
+                <mvc:XMLView id="helloPanel"
+                             viewName="logaligroup.invoice.view.HelloPanel"
+                             type="XML"/>
+                <mvc:XMLView id="invoices"
+                             viewName="logaligroup.invoice.view.InvoicesList"
+                             type="XML"/> 
+
+                <!-- <mvc:XMLView id="invoices2"
+                             viewName="logaligroup.invoice.view.InvoicesList2"
+                             type="XML"/>  -->     
+                <mvc:XMLView id="invoices3"
+                             viewName="logaligroup.invoice.view.InvoicesList3"
+                             type="XML"/>                
+                                           
+        </content>
+        </Page>
+      
+</mvc:View>

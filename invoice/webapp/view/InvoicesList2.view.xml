@@ -3,13 +3,14 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
  
- <List id="invoicesList2" headerText="{i18n>invoiceListTitle}"
+  <List id="invoicesList2" headerText="{i18n>invoiceListTitle}"
     class="sapUiResponsiveMargin"
-    items="{ path : '/Invoices',
+    items="{ path : 'northwind>/Invoices',
              sorter : { path : 'ProductName',
                         group: true} 
              }"
     width="auto">
+    
     <headerToolbar>
         <Toolbar >
             <Title text="{i18n>invoiceListTitle}"/>
@@ -21,9 +22,9 @@
 
     <items>
                 <!-- formatOptions : roundingMode:'TOWARDS_ZERO' , groupingSeparator: ',',  decimalSeparator: '.'  -->
-                <ObjectListItem id="_IDGenObjectListItem1" title="{Quantity} x {ProductName}" 
+                <ObjectListItem id="_IDGenObjectListItem1" title="{northwind>Quantity} x {northwind>ProductName}" 
                     number="{
-                        parts: [ { path:'ExtendedPrice' },
+                        parts: [ { path:'northwind>ExtendedPrice' },
                                  { path:'currency>/usd'          }],
                         type:'sap.ui.model.type.Currency',
                         formatOptions:{showMeasure : false,
@@ -33,7 +34,10 @@
                     }"
                     
                     numberUnit = "{currency>/usd}"
-                    numberState="{= ${ExtendedPrice} > 50 ? 'Success' : 'Error'}">
+                    numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}"
+                    type="Navigation"
+                    press="navigateToDetails">
+                    
 
                 
 

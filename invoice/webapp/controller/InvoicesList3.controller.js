@@ -7,7 +7,7 @@ sap.ui.define([
 
 ], function (Controller,JSONModel,invoicesFormatter,Filter,FilterOperator) {
         "use strict";
-        return Controller.extend("logaligroup.invoice.controller.InvoicesList2", {
+        return Controller.extend("logaligroup.invoice.controller.InvoicesList3", {
 
             formatter: invoicesFormatter,
             
@@ -36,7 +36,7 @@ sap.ui.define([
                          new Filter("ProductName", FilterOperator.Contains, sQuery1)   
                     );
                 }
-               
+                
                 let oList = this.getView().byId("invoicesList2"),
                     oBinding = oList.getBinding("items");
                     oBinding.filter(aFilter);
