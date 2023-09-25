@@ -1,10 +1,13 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "employees/model/formatter"
 
-],function (Controller) {
+],function (Controller,formatter) {
     "use strict";
 
     return Controller.extend("employees.controller.DetailsEmployee", {
+
+        formatter: formatter,
 
         onInit : function (){
             

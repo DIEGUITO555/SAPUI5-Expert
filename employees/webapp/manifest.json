@@ -44,7 +44,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.118.0",
       "libs": {
@@ -88,6 +88,11 @@
       "css": [
         {
           "uri": "css/style.css"
+        }
+      ],
+      "js":[
+        {
+          "uri": "libs/moment.js"
         }
       ]
     },

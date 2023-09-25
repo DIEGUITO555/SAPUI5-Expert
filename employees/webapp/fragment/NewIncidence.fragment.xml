@@ -10,7 +10,14 @@
                                         ${incidenceModel>status} === '2'? 'sap-icon://decline' : ''
                                         
                                         }"/>
-                    <Title text="{i18n>incidence} {incidenceModel>index}"/>
+                    <Title text="{i18n>incidence} {incidenceModel>index}    {path:'incidenceModel>date',
+                                                                            formatter: '.formatter.dateFormat'
+                                                                            }"/>
+
+                    <ToolbarSpacer />
+                    <Button type="Reject"
+                            icon="sap-icon://delete"
+                            press="onDeleteIncidence"/>                                                
                 </Toolbar>
             </headerToolbar>
             <content>

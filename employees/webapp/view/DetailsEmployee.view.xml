@@ -67,6 +67,8 @@
                                 <Title text="{i18n>incident} {= ${jsonEmployees>Country} !== 'US'? ${i18n>europa} : ${i18n>us}}" />
                                 <ToolbarSpacer ></ToolbarSpacer>
                                 <Button text="{i18n>createIncidence}"
+                                        type="Accept"
+                                        icon="sap-icon://create"
                                         press="onCreateIncidence"/>
                             </Toolbar>
                         </headerToolbar>
