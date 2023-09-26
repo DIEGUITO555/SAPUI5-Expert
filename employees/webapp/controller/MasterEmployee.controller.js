@@ -105,7 +105,7 @@ sap.ui.define([
 
             onShowPostalCode: function (oEvent){
                 let oItem = oEvent.getSource(),
-                oBindingContext = oItem.getBindingContext("jsonEmployees"),
+                oBindingContext = oItem.getBindingContext("odataNorthwind"),
                 oObject = oBindingContext.getObject(),
                 sPostalCode = oBindingContext.getProperty("PostalCode");
 
@@ -122,7 +122,7 @@ sap.ui.define([
 
 
                 let oItem = oEvent.getSource(),
-                    oBindingContext = oItem.getBindingContext("jsonEmployees"),
+                    oBindingContext = oItem.getBindingContext("odataNorthwind"),
                     aOrders = oBindingContext.getProperty("Orders");
 
                     let aOrdersItems = [];
@@ -164,14 +164,14 @@ sap.ui.define([
 
             showOrders: function (oEvent){
                         let oIcon = oEvent.getSource();
-                        let oContext = oIcon.getBindingContext("jsonEmployees");
+                        let oContext = oIcon.getBindingContext("odataNorthwind");
 
                         if(!this.oDialogOrders){
                             this.oDialogOrders = sap.ui.xmlfragment("employees.fragment.DialogOrders",this);
                             this.getView().addDependent(this.oDialogOrders);
                         }
 
-                        this.oDialogOrders.bindElement("jsonEmployees>"+oContext);
+                        this.oDialogOrders.bindElement("odataNorthwind>"+oContext);
                         this.oDialogOrders.open();
             
   
@@ -183,7 +183,7 @@ sap.ui.define([
 
             ShowEmployee: function (oEvent){
                 let oItem = oEvent.getSource(),
-                    oBindingContext = oItem.getBindingContext("jsonEmployees"),
+                    oBindingContext = oItem.getBindingContext("odataNorthwind"),
                     sPath = oBindingContext.getPath();
 
                 this.oEventBus.publish("flexible","ShowEmployee",sPath);

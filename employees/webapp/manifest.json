@@ -1,139 +1,162 @@
 {
-  "_version": "1.49.0",
-  "sap.app": {
-    "id": "employees",
-    "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "0.0.1"
-    },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
-      "version": "1.10.6",
-      "toolsId": "1d0c478f-82f7-492b-b45a-397e18085241"
-    },
-    "dataSources": {
-      "mainService": {
-        "uri": "/V2/Northwind/Northwind.svc/",
-        "type": "OData",
-        "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
-          "odataVersion": "2.0"
-        }
-      }
-    }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
-    }
-  },
-  "sap.ui5": {
-    "flexEnabled": false,
-    "dependencies": {
-      "minUI5Version": "1.118.0",
-      "libs": {
-        "sap.m": {},
-        "sap.ui.core": {},
-        "sap.f": {},
-        "sap.suite.ui.generic.template": {},
-        "sap.ui.comp": {},
-        "sap.ui.generic.app": {},
-        "sap.ui.table": {},
-        "sap.ushell": {}
-      }
-    },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "employees.i18n.i18n"
-        }
-      },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {}
-      },
-      "global":{
-        "type": "sap.ui.model.json.JSONModel",
-        "uri": "model/Employees.json"
-      },
-      "layouts":{
-        "type": "sap.ui.model.json.JSONModel",
-        "uri": "model/Layouts.json"
-
-      }
-    },
-    "resources": {
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ],
-      "js":[
-        {
-          "uri": "libs/moment.js"
-        }
-      ]
-    },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "employees.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
-      },
-      "routes": [
-        {
-          "name": "RouteContainer",
-          "pattern": "container",
-          "target": [
-            "TargetContainer"
-          ]
-        }
-      ],
-      "targets": {
-        "TargetContainer": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Container",
-          "viewName": "Container"
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "employees",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
         },
-        "TargetMasterEmployee":{
-          "viewId": "MasterEmployee",
-          "viewName": "MasterEmployee"
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.6",
+            "toolsId": "1d0c478f-82f7-492b-b45a-397e18085241"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/V2/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "YSAPUI5_SRV_01": {
+                "uri": "/sap/opu/odata/sap/YSAPUI5_SRV_01/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/YSAPUI5_SRV_011/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
         }
-      }
     },
-    "rootView": {
-      "viewName": "employees.view.Container",
-      "type": "XML",
-      "async": true,
-      "id": "Container"
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.118.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "employees.i18n.i18n"
+                }
+            },
+            "odataNorthwind": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            },
+            "global": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Employees.json"
+            },
+            "layouts": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Layouts.json"
+            },
+            "incidence": {
+                "dataSource": "YSAPUI5_SRV_01",
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "defaultUpdateMethod" : "Put",
+                    "useBatch":false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "libs/moment.js"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "employees.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteContainer",
+                    "pattern": "container",
+                    "target": [
+                        "TargetContainer"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetContainer": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Container",
+                    "viewName": "Container"
+                },
+                "TargetMasterEmployee": {
+                    "viewId": "MasterEmployee",
+                    "viewName": "MasterEmployee"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "employees.view.Container",
+            "type": "XML",
+            "async": true,
+            "id": "Container"
+        }
     }
-  }
 }
