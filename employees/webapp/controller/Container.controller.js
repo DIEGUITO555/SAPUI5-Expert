@@ -18,22 +18,24 @@ sap.ui.define([
 
             this.oEventBus.subscribe("incidence","onDeleteIncidence", function (sChannelId,sEventId, oBindingContext) {
                 let oResourceBundle = this.getView().getModel("i18n").getResourceBundle(),
-                    sIncidenceId = oBindingContext.getProperty("Incidence"),
+                    sIncidenceId = oBindingContext.getProperty("IncidenceId"),
                     sSapId = oBindingContext.getProperty("SapId"),
                     sEmployeeId = oBindingContext.getProperty("EmployeeId");
 
-                let sUrl = "/IncidentsSet(IncidenceId='"+sIncidenceId+"', SapId = '"+sSapId+"',EmployeeId='"+sEmployeeId+"')"    
+                let sUrl = "/IncidentsSet(IncidenceId='"+sIncidenceId+"',SapId='"+sSapId+"',EmployeeId='"+sEmployeeId+"')"; 
+               // console.log(oBindingContext.getObject());   
+               // console.log(oBindingContext.getProperty("IncidenceId"));
 
 
-                this.getOwnerComponent().getModel("incidence").remove(sUrl,{
+                 this.getOwnerComponent().getModel("incidence").remove(sUrl,{
                     success: function () {
-                        this.onReadDataIncidence.bind(this)();
+                        this.onReadDataIncidence.bind(this)(sEmployeeId);
                         sap.m.MessageToast.show(oResourceBundle.getText("odataDeleteOK"));
                     }.bind(this),
                     error: function (){
                         sap.m.MessageToast.show(oResourceBundle.getText("odataDeleteKO"));
                     }
-                })
+                }) 
             },this );
         },
 
@@ -210,7 +212,9 @@ sap.ui.define([
                     console.log(e);
                 }
             })
-        }
+        },
+
+
 
     });
 });
