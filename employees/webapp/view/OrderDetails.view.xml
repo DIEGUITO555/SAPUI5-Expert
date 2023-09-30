@@ -1,0 +1,74 @@
+<mvc:View xmlns:macros="sap.fe.macros"   
+            controllerName="employees.controller.OrderDetails"
+            xmlns="sap.m"
+            xmlns:l="sap.ui.layout"
+            xmlns:f="sap.ui.layout.form"
+            xmlns:mvc="sap.ui.core.mvc" >
+
+    <Page >
+        <customHeader>
+            <Bar >
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back"
+                            press="onNavToBack"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Text text="Order Details"></Text>
+                </contentMiddle>
+            </Bar>
+        </customHeader>   
+        <content>
+            <Panel headerText="{i18n>customerID} {odataNorthwind>CustomerID}" >
+                <l:Grid defaultSpan="XL3 L3 M6 S12">
+                    <f:Form >
+                        <f:layout>
+                            <f:ResponsiveGridLayout labelSpanL="6"
+                                                    labelSpanM="6"
+                                                    labelSpanXL="12"/>
+                            
+                            </f:layout>
+
+                            <f:formContainers>
+
+                                <f:FormContainer >
+
+                                    <f:formElements>
+
+                                        <f:FormElement >
+                                            <f:fields>
+                                                <Text text="{path:'odataNorthwind>OrderDate',
+                                                             type:'sap.ui.model.type.Date'}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+
+                                        <f:FormElement label="{i18n>freight}" >
+                                            <f:fields>
+                                                <Text text="{odataNorthwind>Freight}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+
+                                        <f:FormElement label="{i18n>shipName}">
+                                            <f:fields>
+                                                <Text text="{odataNorthwind>ShipName}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+
+                                        <f:FormElement label="{i18n>shipAddress}">
+                                            <f:fields>
+                                                <Text text="{odataNorthwind>ShipAddress},{odataNorthwind>ShipCity},{odataNorthwind>ShipCountry}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+
+                                    </f:formElements>
+
+                                </f:FormContainer>
+
+                            </f:formContainers>
+                    </f:Form>
+                </l:Grid>
+            </Panel>
+        </content>
+    </Page>
+
+
+</mvc:View>            

@@ -136,27 +136,34 @@
                     "target": [
                         "TargetContainer"
                     ]
+                },
+                {
+                    "name": "RouteOrderDetails",
+                    "pattern": "OrderDetails/{OrderID}",
+                    "target" : [
+                        "TargetOrderDetails"
+                    ]
+                    
                 }
             ],
             "targets": {
                 "TargetContainer": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "Container",
                     "viewName": "Container"
                 },
                 "TargetMasterEmployee": {
-                    "viewId": "MasterEmployee",
                     "viewName": "MasterEmployee"
+                },
+                "TargetOrderDetails" : {
+                    "viewName": "OrderDetails"
                 }
+                
             }
         },
         "rootView": {
-            "viewName": "employees.view.Container",
+            "viewName": "employees.view.App",
             "type": "XML",
             "async": true,
-            "id": "Container"
+            "id": "app"
         }
     }
 }

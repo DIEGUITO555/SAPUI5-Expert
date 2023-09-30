@@ -187,6 +187,27 @@ sap.ui.define([
                     sPath = oBindingContext.getPath();
 
                 this.oEventBus.publish("flexible","ShowEmployee",sPath);
+            },
+
+            onNavToOrderDetails: function (oEvent) {
+
+                let oSource = oEvent.getSource(),
+                    oBindingContext = oSource.getBindingContext("odataNorthwind"),
+                    sOrderId = oBindingContext.getProperty("OrderID").toString();
+
+          /*           console.log(oBindingContext.getObject());    
+                    console.log(oEvent.getSource());
+                    console.log(oEvent.getSource().getBindingContext("odataNorthwind"));  */   
+
+                let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                
+                oRouter.navTo("RouteOrderDetails",{
+                    OrderID : sOrderId
+                });
+                
+                //console.log(oRouter); 
+
+                
             }
         });
     });

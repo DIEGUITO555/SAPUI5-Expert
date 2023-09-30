@@ -5,9 +5,7 @@
             xmlns:core="sap.ui.core" 
             displayBlock="true">
 
-    <Shell id="shell">
-        <App id="app">
-            <pages>
+
 
                 <Page id="aux">
                     <content>
@@ -55,9 +53,5 @@
                         </Toolbar>
                     </footer>
                 </Page>
-            </pages>
-        </App>
-    </Shell>           
-
-
+          
 </mvc:View>

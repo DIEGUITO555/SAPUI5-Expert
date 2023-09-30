@@ -23,8 +23,8 @@ sap.ui.define([
                     sEmployeeId = oBindingContext.getProperty("EmployeeId");
 
                 let sUrl = "/IncidentsSet(IncidenceId='"+sIncidenceId+"',SapId='"+sSapId+"',EmployeeId='"+sEmployeeId+"')"; 
-               // console.log(oBindingContext.getObject());   
-               // console.log(oBindingContext.getProperty("IncidenceId"));
+                // console.log(oBindingContext.getObject());   
+                // console.log(oBindingContext.getProperty("IncidenceId"));
 
 
                  this.getOwnerComponent().getModel("incidence").remove(sUrl,{
@@ -45,8 +45,8 @@ sap.ui.define([
 
         _loadCountries : function(){
             let oModel = new JSONModel(),
-                oView = this.getView(),
-                oResourceBundle = oView.getModel("i18n").getResourceBundle();
+                oView = this.getView();
+                //oResourceBundle = oView.getModel("i18n").getResourceBundle();
                
                 
 

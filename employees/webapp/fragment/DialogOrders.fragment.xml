@@ -17,7 +17,8 @@
                     </columns>
 
                     <items>
-                        <ColumnListItem >
+                        <ColumnListItem type="Navigation"
+                                        press="onNavToOrderDetails" >
                             <cells>
                                 <Text text="{odataNorthwind>OrderID}"/>
                                 <Text text="{odataNorthwind>Freight} "/>
